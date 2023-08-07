@@ -1,4 +1,4 @@
-<div class="relative bg-white" x-data="{ mobileMenuOpen: false, searchOpen: false }">
+<div class="relative bg-white" x-data="{ mobileMenuOpen: false, searchOpen: false }" x-cloak>
   <div class="px-4 mx-auto sm:px-6">
     <div class="flex items-center justify-between py-6 md:justify-start md:space-x-10">
       <!-- STORE NAME / STORE LOGO -->
@@ -15,7 +15,7 @@
         </button>
       </div>
       {% comment %} Navigation menu {% endcomment %}
-      <nav class="hidden space-x-8  md:-my-px md:ml-10 md:flex" x-data="{ open: {} }">
+      <nav class="hidden space-x-8 md:-my-px md:ml-10 md:flex" x-data="{ open: {} }">
         {% for link in section.settings.Menu.links %}
           {% if link.links != blank %}
             <div class="relative" x-init="open['{{ link.title | handle }}'] = false">
@@ -37,7 +37,7 @@
                 @click.away="open['{{ link.title | handle }}'] = false"
                 class="absolute z-20 w-screen max-w-md sm:px-o lg:ml-0 md:mt-2 lg:-translate-x-1/2 lg:left-1/2 "
               >
-                <div class="overflow-hidden border rounded-lg shadow-lg ring-black ring-opacity-5">
+                <div class="overflow-hidden bg-blue-400 border rounded-lg shadow-lg ring-black ring-opacity-5">
                   {% for childLink in link.links %}
                     <a
                       href="{{ childLink.url }}"
